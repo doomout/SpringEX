@@ -27,28 +27,35 @@ dependencies {
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
-  // https://mvnrepository.com/artifact/org.springframework/spring-core
+  // Spring 관련
   implementation group: 'org.springframework', name: 'spring-core', version: '5.3.19'
-  // https://mvnrepository.com/artifact/org.springframework/spring-context
   implementation group: 'org.springframework', name: 'spring-context', version: '5.3.19'
-  // https://mvnrepository.com/artifact/org.springframework/spring-test
   testImplementation group: 'org.springframework', name: 'spring-test', version: '5.3.19'
   implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.19'
+  implementation group: 'org.springframework', name:'spring-jdbc', version: '5.3.19'
+  implementation group: 'org.springframework', name:'spring-tx', version: '5.3.19'
 
-  // https://mvnrepository.com/artifact/org.projectlombok/lombok
+  // Lombok 관련
   compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
   annotationProcessor 'org.projectlombok:lombok:1.18.24'
   testCompileOnly 'org.projectlombok:lombok:1.18.24'
   testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 
+  //Log4j2 관련
   implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.2'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.2'
 
+  //Jstl 관련
   implementation group: 'jstl', name: 'jstl', version: '1.2'
 
+  //MariaDB 관련
   implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.4'
   implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+
+  // MyBatis 관련
+  implementation group: 'org.mybatis', name: 'mybatis', version: '3.5.9'
+  implementation group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.7'
 }
 
 test {
