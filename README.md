@@ -21,6 +21,8 @@ dependencies {
   implementation group: 'org.springframework', name: 'spring-context', version: '5.3.19'
   testImplementation group: 'org.springframework', name: 'spring-test', version: '5.3.19'
   implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.19'
+  implementation group: 'org.springframework', name:'spring-jdbc', version: '5.3.19'
+  implementation group: 'org.springframework', name:'spring-tx', version: '5.3.19'
   
   //Lombok 관련
   compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
@@ -39,6 +41,10 @@ dependencies {
   //MariaDB 관련
   implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.4'
   implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+  
+  // MyBatis 관련
+  implementation group: 'org.mybatis', name: 'mybatis', version: '3.5.9'
+  implementation group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.7'
 }
 ```
 2. log4j2.xml 설정(보안 이슈 해결 버전인 2.17.0 이상을 권장)
@@ -77,3 +83,11 @@ dependencies {
   <param-value>WEB-INF/root-context.xml</param-value>
 </context-param>   
 ```
+5. XML 로 SQL 분리
+   * MyBatis 를 이용할 때 SQL은 @Select 와 같은 어노테이션으로 사용하기도 한다.
+   * 하지만 대부분 SQL은 별도의 파일로 분리하여 사용한다.
+   * XML 을 사용하는 이유는 SQL이 길어지거나, 변경되면 프로그램을 수정해야 하기에 따로 파일로 분리한다.
+   * XML 과 mapper 인터페이스를 같이 결합할려면 다음과 같은 과정으로 해야 한다.
+   * mapper 인터페이스 정의하고 메소드 선언
+   * XML 파일 작성(파일명과 mapper 인터페이스 이름 동일하게), select 와 같은 태그 이용해서 SQL 작성
+   * select, insert 등의 태그에 id 속성 값을 매퍼 인터페이스의 메소드 이름과 같게 작성
