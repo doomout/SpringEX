@@ -62,4 +62,9 @@ public class SampleController {
     public void ex6() {
 
     }
+    @GetMapping("/ex7")
+    public void ex7(String p1, int p2) {
+        log.info("p1............" + p1);
+        log.info("p2............" + p2);
+    }
 }
