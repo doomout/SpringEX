@@ -81,9 +81,25 @@ dependencies {
 <context-param>
   <param-name>contextConfigLocation</param-name>
   <param-value>WEB-INF/root-context.xml</param-value>
-</context-param>   
+</context-param>
+<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+<servlet>
+    <servlet-name>appServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/servlet-context.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+    <servlet-name>appServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
 ```
-5. XML 로 SQL 분리
+5. XML 로 SQL 분리 
    * MyBatis 를 이용할 때 SQL은 @Select 와 같은 어노테이션으로 사용하기도 한다.
    * 하지만 대부분 SQL은 별도의 파일로 분리하여 사용한다.
    * XML 을 사용하는 이유는 SQL이 길어지거나, 변경되면 프로그램을 수정해야 하기에 따로 파일로 분리한다.
@@ -91,3 +107,8 @@ dependencies {
    * mapper 인터페이스 정의하고 메소드 선언
    * XML 파일 작성(파일명과 mapper 인터페이스 이름 동일하게), select 와 같은 태그 이용해서 SQL 작성
    * select, insert 등의 태그에 id 속성 값을 매퍼 인터페이스의 메소드 이름과 같게 작성
+6. 스프링 MVC 컨트롤러
+   * 상속이나 인터페이스를 구현하는 방식을 사용하지 않고 어노테이션으로만으로 처리 가능
+   * 오버라이드 없이 필요한 메소드들을 정의
+   * 메소드의 파라미터를 기본 자료형이나 객체 자료형을 마음대로 지정
+   * 메소드의 리턴타입도 void, String, 객체 등 다양한 타입을 사용
