@@ -112,3 +112,20 @@ dependencies {
    * 오버라이드 없이 필요한 메소드들을 정의
    * 메소드의 파라미터를 기본 자료형이나 객체 자료형을 마음대로 지정
    * 메소드의 리턴타입도 void, String, 객체 등 다양한 타입을 사용
+7. RedirectAttributes 와 Redirect
+   * addAttribute(키, 값) : 리다이렉트할 때 쿼리 스트링이 되는 값을 지정
+   * addFlashAttribute(키, 값) : 일회용으로만 데이터를 전달하고 삭제되는 값을 지정
+8. 스프링 MVC 에서 주로 사용하는 어노테이션들
+   * ------컨트롤러------
+   * @Controller : 스프링 빈의 처리됨을 명시
+   * @RestController : REST 방식의 처리를 위한 컨트롤러임을 명시
+   * @RequestMapping : 특정한 URL 패턴에 맞는 컨트롤러인지를 명시
+   * ------메소드---------
+   * @GetMapping/@PostMapping/@DeleteMapping/@PutMapping : HTTP 전송 방식에 따라 사용
+   * @RequestMapping : GET/POST 방식 모두를 지원하는 경우 사용
+   * @ResponseBody : REST 방식에서 사용
+   * ------메소드의 파라미터--------
+   * @RequestParam : Request에 있는 특정한 이름의 데이터를 파라미터로 받아서 처리 하는 경우
+   * @PathVariable : URL 경로의 일부를 변수로 삼아서 처리하기 위해 사용
+   * @ModelAttribute : 반드시 Model에 포함되어서 다시 뷰로 전달됨을 명시
+   
