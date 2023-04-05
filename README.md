@@ -6,7 +6,8 @@ IDE - IntelliJ IDEA 2023.1 (Ultimate Edition)
 웹 서버 - 톰캣 9.0.73  
 DB - MariaDB 10.5(x64)  
 SQL 툴 - HeidiSQL 11.3.0.6295  
-스프링 프레임워크 버전 - 5.3.19
+스프링 프레임워크 버전 - 5.3.19  
+부트스트랩 버전 - 5.1.3
 
 1. build.gradle 설정
 ```
@@ -138,4 +139,5 @@ dependencies {
    * @RequestParam : Request에 있는 특정한 이름의 데이터를 파라미터로 받아서 처리 하는 경우
    * @PathVariable : URL 경로의 일부를 변수로 삼아서 처리하기 위해 사용
    * @ModelAttribute : 반드시 Model에 포함되어서 다시 뷰로 전달됨을 명시
+
    
