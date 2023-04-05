@@ -72,6 +72,9 @@ dependencies {
         <logger name="org.zerock" level="INFO" additivity="false" >
             <Appender-ref ref="console" />
         </logger>
+        <logger name="org.zerock.springex.mapper" level="TRACE" additivity="false">
+           <Appender-ref ref="console" />
+        </logger>
         <root level="INFO" additivity="false">
             <AppenderRef ref="console" />
         </root>
