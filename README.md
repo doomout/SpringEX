@@ -45,6 +45,12 @@ dependencies {
   // MyBatis 관련
   implementation group: 'org.mybatis', name: 'mybatis', version: '3.5.9'
   implementation group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.7'
+  
+  //DTO 와 VO 변환을 위한 ModelMapper
+  implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.0.0'
+
+  //DTO 검증을 위한 라이브러리
+  implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.2.1.Final'
 }
 ```
 2. log4j2.xml 설정(보안 이슈 해결 버전인 2.17.0 이상을 권장)
