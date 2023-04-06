@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.springex.dto.TodoDTO;
 
 @Controller
@@ -23,8 +24,10 @@ public class TodoController {
     }
 
     @PostMapping("/register")
-    public void registerPost(TodoDTO todoDTO) {
+    public String registerPost(TodoDTO todoDTO, RedirectAttributes redirectAttributes) {
         log.info("POST todo register........");
         log.info(todoDTO);
+
+        return "redirect:/todo/list";
     }
 }
