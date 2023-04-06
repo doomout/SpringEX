@@ -112,6 +112,18 @@ dependencies {
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
 </servlet-mapping>
+<filter>
+<filter-name>encoding</filter-name>
+<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+<init-param>
+   <param-name>encoding</param-name>
+   <param-value>UTF-8</param-value>
+</init-param>
+</filter>
+<filter-mapping>
+<filter-name>encoding</filter-name>
+<servlet-name>appServlet</servlet-name>
+</filter-mapping>
 ```
 5. XML 로 SQL 분리 
    * MyBatis 를 이용할 때 SQL은 @Select 와 같은 어노테이션으로 사용하기도 한다.
