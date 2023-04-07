@@ -19,6 +19,7 @@ import javax.validation.Valid;
 @Log4j2
 @RequiredArgsConstructor
 public class TodoController {
+
     private final TodoService todoService;
     @RequestMapping("/list")
     public void list() {
@@ -41,6 +42,8 @@ public class TodoController {
             return "redirect:/todo/register";
         }
         log.info(todoDTO);
+
+        todoService.register(todoDTO);
 
         return "redirect:/todo/list";
     }
