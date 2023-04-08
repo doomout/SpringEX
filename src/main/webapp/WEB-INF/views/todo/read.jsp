@@ -47,29 +47,48 @@
                         Featured
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Tno</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Writer</th>
-                                <th scope="col">DueDate</th>
-                                <th scope="col">Finished</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${dtoList}" var="dto">
-                                <tr>
-                                    <th scope="row"><c:out value="${dto.tno}"/> </th>
-                                    <td><a href="/todo/read?tno=${dto.tno}" class="text-decoration-none"><c:out value="${dto.title}"/></a></td>
-                                    <td><c:out value="${dto.writer}"/></td>
-                                    <td><c:out value="${dto.dueDate}"/></td>
-                                    <td><c:out value="${dto.finished}"/></td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">TNO</span>
+                            <input type="text" name="tno" class="form-control" value='<c:out value="${dto.tno}"></c:out>' readonly>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Title</span>
+                            <input type="text" name="title" class="form-control" value='<c:out value="${dto.title}"></c:out>' readonly>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">DueDate</span>
+                            <input type="date" name="dueDate" class="form-control" value='<c:out value="${dto.dueDate}"></c:out>' readonly>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Writer</span>
+                            <input type="text" name="writer" class="form-control" value='<c:out value="${dto.writer}"></c:out>' readonly>
+                        </div>
+
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                Finished &nbsp;
+                            </label>
+                            <input class="form-check-input" type="checkbox" name="finished" ${dto.finished?"checked":""} disabled>
+                        </div>
+
+                        <div class="my-4">
+                            <div class="float-end">
+                                <button type="button" class="btn btn-primary">Modify</button>
+                                <button type="button" class="btn btn-secondary">List</button>
+                            </div>
+                        </div>
+
+                        <script>
+                            document.querySelector(".btn-primary").addEventListener("click", function(e){
+                                self.location = "/todo/modify?tno="+${dto.tno}
+                            }, false)
+                            document.querySelector(".btn-secondary").addEventListener("click", function (e) {
+                                self.location ="/todo/list";
+                            },false)
+                        </script>
                     </div>
                 </div>
             </div>
