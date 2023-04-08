@@ -22,8 +22,10 @@ public class TodoController {
 
     private final TodoService todoService;
     @RequestMapping("/list")
-    public void list() {
+    public void list(Model model) {
         log.info("todo list");
+
+        model.addAttribute("dtoList", todoService.getAll());
     }
 
     @GetMapping("/register")
