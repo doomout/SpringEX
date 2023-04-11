@@ -1,3 +1,4 @@
+
 package org.zerock.springex.mapper;
 
 import org.zerock.springex.domain.TodoVO;
@@ -6,6 +7,7 @@ import org.zerock.springex.dto.PageRequestDTO;
 import java.util.List;
 
 public interface TodoMapper {
+
     String getTime();
 
     void insert(TodoVO todoVO);
@@ -22,3 +24,4 @@ public interface TodoMapper {
 
     int getCount(PageRequestDTO pageRequestDTO);
 }
+
